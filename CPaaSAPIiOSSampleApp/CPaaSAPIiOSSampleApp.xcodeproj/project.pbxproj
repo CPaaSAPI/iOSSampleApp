@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5EED759B27FC3160007FAD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED759A27FC3160007FAD3D /* AppDelegate.swift */; };
 		5EED759D27FC3160007FAD3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED759C27FC3160007FAD3D /* SceneDelegate.swift */; };
-		5EED75A227FC3160007FAD3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED75A027FC3160007FAD3D /* Main.storyboard */; };
 		5EED75A427FC3163007FAD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EED75A327FC3163007FAD3D /* Assets.xcassets */; };
 		5EED75A727FC3163007FAD3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED75A527FC3163007FAD3D /* LaunchScreen.storyboard */; };
 		5EED75AF27FC5BF2007FAD3D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED75AE27FC5BF2007FAD3D /* MainView.swift */; };
@@ -18,7 +17,7 @@
 		5EED75C727FC72BB007FAD3D /* CpaasAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EED75CA27FC733C007FAD3D /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; };
 		5EED75CB27FC733C007FAD3D /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5EFD1F4427FCC7AD009E9388 /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD1F4327FCC7AD009E9388 /* MeetingView.swift */; };
+		5EFD1F4427FCC7AD009E9388 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD1F4327FCC7AD009E9388 /* CallView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +39,6 @@
 		5EED759727FC3160007FAD3D /* CPaaSAPIiOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPaaSAPIiOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EED759A27FC3160007FAD3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EED759C27FC3160007FAD3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5EED75A127FC3160007FAD3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EED75A327FC3163007FAD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EED75A627FC3163007FAD3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EED75A827FC3163007FAD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,7 +46,7 @@
 		5EED75B027FC6A16007FAD3D /* CpaasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpaasModel.swift; sourceTree = "<group>"; };
 		5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CpaasAPI.framework; sourceTree = "<group>"; };
 		5EED75C827FC732C007FAD3D /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
-		5EFD1F4327FCC7AD009E9388 /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
+		5EFD1F4327FCC7AD009E9388 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +84,12 @@
 			children = (
 				5EED759A27FC3160007FAD3D /* AppDelegate.swift */,
 				5EED759C27FC3160007FAD3D /* SceneDelegate.swift */,
-				5EED75A027FC3160007FAD3D /* Main.storyboard */,
 				5EED75A327FC3163007FAD3D /* Assets.xcassets */,
 				5EED75A527FC3163007FAD3D /* LaunchScreen.storyboard */,
 				5EED75A827FC3163007FAD3D /* Info.plist */,
 				5EED75AE27FC5BF2007FAD3D /* MainView.swift */,
 				5EED75B027FC6A16007FAD3D /* CpaasModel.swift */,
-				5EFD1F4327FCC7AD009E9388 /* MeetingView.swift */,
+				5EFD1F4327FCC7AD009E9388 /* CallView.swift */,
 			);
 			path = CPaaSAPIiOSSampleApp;
 			sourceTree = "<group>";
@@ -167,7 +164,6 @@
 			files = (
 				5EED75A727FC3163007FAD3D /* LaunchScreen.storyboard in Resources */,
 				5EED75A427FC3163007FAD3D /* Assets.xcassets in Resources */,
-				5EED75A227FC3160007FAD3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +176,7 @@
 			files = (
 				5EED75B127FC6A16007FAD3D /* CpaasModel.swift in Sources */,
 				5EED759B27FC3160007FAD3D /* AppDelegate.swift in Sources */,
-				5EFD1F4427FCC7AD009E9388 /* MeetingView.swift in Sources */,
+				5EFD1F4427FCC7AD009E9388 /* CallView.swift in Sources */,
 				5EED759D27FC3160007FAD3D /* SceneDelegate.swift in Sources */,
 				5EED75AF27FC5BF2007FAD3D /* MainView.swift in Sources */,
 			);
@@ -189,14 +185,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5EED75A027FC3160007FAD3D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5EED75A127FC3160007FAD3D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5EED75A527FC3163007FAD3D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -343,7 +331,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone is needed so others can hear you";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -380,7 +368,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone is needed so others can hear you";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

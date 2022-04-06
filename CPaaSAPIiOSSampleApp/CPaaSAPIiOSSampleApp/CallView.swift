@@ -1,5 +1,5 @@
 //
-//  MeetingView.swift
+//  CallView.swift
 //  CPaaSAPIiOSSampleApp
 //
 //  Created by Oleg on 05/04/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MeetingView: View {
+struct CallView: View {
    
     @EnvironmentObject var model :CpaasModel
     @State var isLoading: Bool = false
@@ -54,6 +54,6 @@ struct MeetingView: View {
 
 struct MeetingView_Previews: PreviewProvider {
     static var previews: some View {
-        MeetingView()
+        CallView()
     }
 }

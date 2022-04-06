@@ -12,9 +12,10 @@ let bgButtonColor = Color(red:50.0/255.0, green: 64.0/255.0, blue: 73.0/255.0, o
 struct MainView: View {
     @State var userID: String = ""
     @State var destinationID: String = ""
-    @StateObject var model = CpaasModel()
-    
+    @State var model = CpaasModel()
+   
     var body: some View {
+        
         NavigationView {
             VStack(alignment: .center, spacing: 10.0){
                 TextField("UserID", text: $userID)
@@ -53,7 +54,7 @@ struct MainView: View {
                     .background(bgButtonColor)
                     .cornerRadius(8.0)
                 }
-                NavigationLink(destination:  MeetingView().environmentObject(model), isActive: $model.showMeetingView) {}.isDetailLink(false)
+                NavigationLink(destination:  CallView().environmentObject(model), isActive: $model.showMeetingView) {}.isDetailLink(false)
 
             }
             .padding()

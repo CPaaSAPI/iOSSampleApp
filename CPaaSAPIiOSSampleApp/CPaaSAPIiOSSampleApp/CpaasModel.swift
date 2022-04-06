@@ -42,13 +42,19 @@ var call: ICall?
     func mute() {
         if !isCallMuted {
             call?.mute { succeed in
-                self.isCallMuted = true
-                print("called mute, succeed: \(succeed)")
+                if succeed == true {
+                    self.isCallMuted = true
+                    print("called mute, succeed: \(succeed)")
+                }
+               
             }
         } else {
             call?.unMute { succeed in
-                self.isCallMuted = false
-                print("called unMute, succeed: \(succeed)")
+                if succeed == true {
+                    self.isCallMuted = false
+                    print("called unMute, succeed: \(succeed)")
+                }
+                
             }
         }
     }
