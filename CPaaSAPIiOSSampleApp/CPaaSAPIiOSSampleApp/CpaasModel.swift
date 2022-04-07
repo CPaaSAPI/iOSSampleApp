@@ -20,7 +20,7 @@ let app_sid      = "appsid"
 let pns_Token    = "PNSTOKEN"
 let base_URL     = "wss://mavenir.dev:3000" // To 
 var call: ICall?
-@Published var showMeetingView: Bool = false
+@Published var showCallView: Bool = false
 @Published var isCallMuted: Bool = false
     func register(userID: String){
         let settings = CPaaSAPISettings(customDomain: customDomain, accountSid: account_sid, accountToken: app_token , appSid: app_sid, clientId: userID, PNSToken:pns_Token, BaseURL: base_URL)
@@ -30,13 +30,14 @@ var call: ICall?
     
     func start(destinationID: String) {
         call = CPaaSAPI.shared.startCall(destinationId: destinationID, callOptions:  CallOptions(audio: true))
-        showMeetingView = true
+        self.call?.eventListener = self
+        showCallView = true
     }
     
     
     func endCall(){
-       call?.endCall()
-       showMeetingView = false
+       self.call?.endCall()
+       showCallView = false
     }
     
     func mute() {
@@ -68,8 +69,9 @@ extension CpaasModel: CPaaSAPICb {
     func onIncomingCall(call: ICall) {
         print("When there is an incoming call, you can use the  ``call`` object to accept it and call ``call.join()`` to join it.")
         self.call = call
-        self.call?.joinCall()
-        showMeetingView = true
+        call.joinCall()
+        showCallView = true
+        self.call?.eventListener = self
     }
     
     func onRegistrationComplete(success: Bool) {
@@ -79,7 +81,8 @@ extension CpaasModel: CPaaSAPICb {
 
 extension CpaasModel: ICallEvents {
     func onCallEnd(reason: Reason?) {
-        showMeetingView = false
+        showCallView = false
+        self.call = nil
         print("Call end")
     }
     
@@ -88,7 +91,8 @@ extension CpaasModel: ICallEvents {
     }
     
     func onConnectedFailure(reason: Reason) {
-        showMeetingView = false
+        showCallView = false
+        self.call = nil
         print("Connection failed the reson is :\(reason)")
     }
     

@@ -54,7 +54,7 @@ struct MainView: View {
                     .background(bgButtonColor)
                     .cornerRadius(8.0)
                 }
-                NavigationLink(destination:  CallView().environmentObject(model), isActive: $model.showMeetingView) {}.isDetailLink(false)
+                NavigationLink(destination:  CallView().environmentObject(model), isActive: $model.showCallView) {}.isDetailLink(false)
 
             }
             .padding()
@@ -72,10 +72,11 @@ extension UIApplication {
     }
 }
 
-
+#if DEBUG
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .padding(.horizontal)
     }
 }
+#endif

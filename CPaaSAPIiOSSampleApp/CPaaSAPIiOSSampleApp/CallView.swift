@@ -10,7 +10,7 @@ import SwiftUI
 struct CallView: View {
    
     @EnvironmentObject var model :CpaasModel
-    @State var isLoading: Bool = false
+    
     var body: some View {
         
         VStack(alignment: .center){
