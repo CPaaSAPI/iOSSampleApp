@@ -53,7 +53,7 @@ struct CallView: View {
 }
 
 #if DEBUG
-struct MeetingView_Previews: PreviewProvider {
+struct CallView_Previews: PreviewProvider {
     static var previews: some View {
         CallView()
     }
