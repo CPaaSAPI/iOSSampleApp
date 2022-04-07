@@ -30,30 +30,28 @@ var call: ICall?
     
     func start(destinationID: String) {
         call = CPaaSAPI.shared.startCall(destinationId: destinationID, callOptions:  CallOptions(audio: true))
-        self.call?.eventListener = self
+        guard (call != nil) else{return}
+        call!.eventListener = self
         showCallView = true
     }
     
-    
     func endCall(){
-       self.call?.endCall()
-       showCallView = false
+       call!.endCall()
     }
     
     func mute() {
         if !isCallMuted {
-            call?.mute { succeed in
+            call!.mute { succeed in
+            print("called mute, succeed: \(succeed)")
                 if succeed == true {
                     self.isCallMuted = true
-                    print("called mute, succeed: \(succeed)")
                 }
-               
             }
         } else {
-            call?.unMute { succeed in
+            call!.unMute { succeed in
+                print("called unMute, succeed: \(succeed)")
                 if succeed == true {
                     self.isCallMuted = false
-                    print("called unMute, succeed: \(succeed)")
                 }
                 
             }
@@ -69,9 +67,9 @@ extension CpaasModel: CPaaSAPICb {
     func onIncomingCall(call: ICall) {
         print("When there is an incoming call, you can use the  ``call`` object to accept it and call ``call.join()`` to join it.")
         self.call = call
+        self.call!.eventListener = self
         call.joinCall()
         showCallView = true
-        self.call?.eventListener = self
     }
     
     func onRegistrationComplete(success: Bool) {
@@ -82,7 +80,7 @@ extension CpaasModel: CPaaSAPICb {
 extension CpaasModel: ICallEvents {
     func onCallEnd(reason: Reason?) {
         showCallView = false
-        self.call = nil
+        call = nil
         print("Call end")
     }
     
@@ -92,7 +90,7 @@ extension CpaasModel: ICallEvents {
     
     func onConnectedFailure(reason: Reason) {
         showCallView = false
-        self.call = nil
+        call = nil
         print("Connection failed the reson is :\(reason)")
     }
     

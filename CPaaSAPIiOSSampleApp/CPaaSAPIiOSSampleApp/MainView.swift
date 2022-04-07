@@ -12,8 +12,7 @@ let bgButtonColor = Color(red:50.0/255.0, green: 64.0/255.0, blue: 73.0/255.0, o
 struct MainView: View {
     @State var userID: String = ""
     @State var destinationID: String = ""
-    @State var model = CpaasModel()
-   
+    @EnvironmentObject var model :CpaasModel
     var body: some View {
         
         NavigationView {

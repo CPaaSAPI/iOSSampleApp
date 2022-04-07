@@ -15,10 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-
+        let model = CpaasModel()
         if let windowScenedelegate = scene?.delegate as? SceneDelegate {
            let window = UIWindow(windowScene: scene!)
-           window.rootViewController = UIHostingController(rootView:MainView())
+            window.rootViewController = UIHostingController(rootView:MainView().environmentObject(model))
            windowScenedelegate.window = window
            window.makeKeyAndVisible()
         }
