@@ -30,25 +30,28 @@ var call: ICall?
     
     func start(destinationID: String) {
         call = CPaaSAPI.shared.startCall(destinationId: destinationID, callOptions:  CallOptions(audio: true))
-        guard (call != nil) else{return}
-        call!.eventListener = self
+        guard let call = call  else{return}
+        call.eventListener = self
         showCallView = true
     }
     
     func endCall(){
-       call!.endCall()
+        guard let call = call  else{return}
+        call.endCall()
+     
     }
     
     func mute() {
+        guard let call = call  else{return}
         if !isCallMuted {
-            call!.mute { succeed in
+            call.mute { succeed in
             print("called mute, succeed: \(succeed)")
                 if succeed == true {
                     self.isCallMuted = true
                 }
             }
         } else {
-            call!.unMute { succeed in
+            call.unMute { succeed in
                 print("called unMute, succeed: \(succeed)")
                 if succeed == true {
                     self.isCallMuted = false
@@ -58,7 +61,6 @@ var call: ICall?
         }
     }
 
-   
 }
 
 
@@ -68,7 +70,7 @@ extension CpaasModel: CPaaSAPICb {
         print("When there is an incoming call, you can use the  ``call`` object to accept it and call ``call.join()`` to join it.")
         self.call = call
         self.call!.eventListener = self
-        call.joinCall()
+        self.call!.joinCall()
         showCallView = true
     }
     
