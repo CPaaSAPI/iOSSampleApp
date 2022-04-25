@@ -13,17 +13,18 @@ import SwiftUI
 
 class CpaasModel: ObservableObject {
     
-
+let custom_domain = "webrtc-dev.restcomm.com"
 let app_token    = "token"
 let account_sid  = "sid"
 let app_sid      = "ClickToCallDevApp"
-let pns_Token    = "PNSTOKEN"
+let pns_token    = "PNSTOKEN"
+let base_url     = Const.shared.WS_URL_AWS
 var call: ICall?
 @Published var showCallView: Bool = false
 @Published var isCallMuted: Bool = false
 var isAWSModeOn = false
-    func register(userID: String,callMode:Bool ){
-        let settings = CPaaSAPISettings(customDomain: callMode ? "webrtc-dev.restcomm.com" : "domain", accountSid: account_sid, accountToken: app_token , appSid: app_sid, clientId: userID, PNSToken:pns_Token, BaseURL: callMode ? Const.shared.WS_URL_AWS :  Const.shared.WS_URL)
+    func register(userID: String){
+        let settings = CPaaSAPISettings(customDomain: custom_domain, accountSid: account_sid, accountToken: app_token , appSid: app_sid, clientId: userID, PNSToken:pns_token, BaseURL: base_url)
             CPaaSAPI.shared.register(settings: settings, cpaasAPICb: self)
         }
    
