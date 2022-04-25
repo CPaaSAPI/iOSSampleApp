@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class CAPICPaaSAPI, CAPICPaaSAPILogFileProvider, CAPICPaaSAPISettings, CAPICallOptions, CAPIReason, CAPIKotlinEnumCompanion, CAPIKotlinEnum<E>, CAPIKotlinArray<T>, CAPIOperationType, CAPIKotlinThrowable, CAPIKotlinException, CAPIKotlinRuntimeException, CAPISessionDescriptionType, CAPILocalStatistics, NSURL, CAPILogLevel, NSError, CAPICommonLib, CAPIConst, CAPIPlatformName, CAPIAudioReceiveStats, CAPIAudioSendStats, CAPICallInfo, CAPICandidatePairStats, CAPIInvitationInfo, CAPIUserProfile, CAPIKotlinx_serialization_coreSerializersModule, CAPIKotlinx_serialization_coreSerialKind, CAPIKotlinNothing;
+@class CAPICPaaSAPI, CAPICPaaSAPILogFileProvider, CAPICPaaSAPISettings, CAPICallOptions, CAPIReason, CAPIKotlinEnumCompanion, CAPIKotlinEnum<E>, CAPIKotlinArray<T>, CAPIOperationType, CAPIKotlinThrowable, CAPIKotlinException, CAPIKotlinRuntimeException, CAPISessionDescriptionType, NSURL, CAPILogLevel, NSError, CAPICommonLib, CAPIConst, CAPIPlatformName, CAPICallInfo, CAPIKotlinx_serialization_coreSerializersModule, CAPIKotlinx_serialization_coreSerialKind, CAPIKotlinNothing;
 
 @protocol CAPIICall, CAPICPaaSAPICb, CAPIICallEvents, CAPIKotlinComparable, CAPIKotlinIterator, CAPIKotlinx_serialization_coreSerializersModuleCollector, CAPIKotlinx_serialization_coreKSerializer, CAPIKotlinKClass, CAPIKotlinx_serialization_coreSerializationStrategy, CAPIKotlinx_serialization_coreDeserializationStrategy, CAPIKotlinx_serialization_coreEncoder, CAPIKotlinx_serialization_coreSerialDescriptor, CAPIKotlinx_serialization_coreDecoder, CAPIKotlinKDeclarationContainer, CAPIKotlinKAnnotatedElement, CAPIKotlinKClassifier, CAPIKotlinx_serialization_coreCompositeEncoder, CAPIKotlinAnnotation, CAPIKotlinx_serialization_coreCompositeDecoder;
 
@@ -261,7 +261,11 @@ __attribute__((swift_name("OperationType")))
 @property (class, readonly) CAPIOperationType *endCallAck __attribute__((swift_name("endCallAck")));
 @property (class, readonly) CAPIOperationType *register_ __attribute__((swift_name("register_")));
 @property (class, readonly) CAPIOperationType *reject __attribute__((swift_name("reject")));
+@property (class, readonly) CAPIOperationType *getIceSettings __attribute__((swift_name("getIceSettings")));
 @property (class, readonly) CAPIOperationType *mock __attribute__((swift_name("mock")));
+@property (class, readonly) CAPIOperationType *popDiscovery __attribute__((swift_name("popDiscovery")));
+@property (class, readonly) CAPIOperationType *cognitoAuth __attribute__((swift_name("cognitoAuth")));
+@property (class, readonly) CAPIOperationType *openWs __attribute__((swift_name("openWs")));
 + (CAPIKotlinArray<CAPIOperationType *> *)values __attribute__((swift_name("values()")));
 @end;
 
@@ -320,14 +324,6 @@ __attribute__((swift_name("SessionDescriptionType")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StatisticsHandler")))
-@interface CAPIStatisticsHandler : CAPIBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (void)onStatisticsReadyStatistics:(CAPILocalStatistics *)statistics __attribute__((swift_name("onStatisticsReady(statistics:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CPaaSAPILogFileProvider")))
 @interface CAPICPaaSAPILogFileProvider : CAPIBase
 - (instancetype)initWithFile:(NSURL *)file __attribute__((swift_name("init(file:)"))) __attribute__((objc_designated_initializer));
@@ -375,6 +371,9 @@ __attribute__((swift_name("Const")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)const_ __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) CAPIConst *shared __attribute__((swift_name("shared")));
+@property (readonly) NSString *AUTH_HEADER_NAME __attribute__((swift_name("AUTH_HEADER_NAME")));
+@property (readonly) NSString *AUTH_HEADER_PREFIX __attribute__((swift_name("AUTH_HEADER_PREFIX")));
+@property (readonly) NSString *AUTH_HEADER_TOKEN __attribute__((swift_name("AUTH_HEADER_TOKEN")));
 @property (readonly) NSString *CLIENT_VERSION __attribute__((swift_name("CLIENT_VERSION")));
 @property (readonly) NSString *DEVICE_ID __attribute__((swift_name("DEVICE_ID")));
 @property (readonly) NSString *FILE_NAME_EXTENSION __attribute__((swift_name("FILE_NAME_EXTENSION")));
@@ -385,10 +384,17 @@ __attribute__((swift_name("Const")))
 @property (readonly) NSString *PREFIX_FILE_NAME __attribute__((swift_name("PREFIX_FILE_NAME")));
 @property (readonly) NSString *PROTOCOL_VERSION __attribute__((swift_name("PROTOCOL_VERSION")));
 @property (readonly) NSString *SOURCE __attribute__((swift_name("SOURCE")));
+@property (readonly) NSString *STUN_GOOGL __attribute__((swift_name("STUN_GOOGL")));
+@property (readonly) NSString *STUN_XIRSYS __attribute__((swift_name("STUN_XIRSYS")));
+@property (readonly) NSString *TURN_URL __attribute__((swift_name("TURN_URL")));
 @property (readonly) NSString *VIDEO_VP8_INTEL_HW_ENCODER_FIELDTRIAL __attribute__((swift_name("VIDEO_VP8_INTEL_HW_ENCODER_FIELDTRIAL")));
 @property (readonly) NSString *WS_MESSAGE_DESTINATION __attribute__((swift_name("WS_MESSAGE_DESTINATION")));
 @property (readonly) NSString *WS_URL __attribute__((swift_name("WS_URL")));
 @property (readonly) NSString *WS_URL_AWS __attribute__((swift_name("WS_URL_AWS")));
+@property (readonly) NSString *XIRSYS_TURN_PASSWORD __attribute__((swift_name("XIRSYS_TURN_PASSWORD")));
+@property (readonly) NSString *XIRSYS_TURN_URL1 __attribute__((swift_name("XIRSYS_TURN_URL1")));
+@property (readonly) NSString *XIRSYS_TURN_URL2 __attribute__((swift_name("XIRSYS_TURN_URL2")));
+@property (readonly) NSString *XIRSYS_TURN_USERNAME __attribute__((swift_name("XIRSYS_TURN_USERNAME")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -396,71 +402,10 @@ __attribute__((swift_name("PlatformUtils")))
 @interface CAPIPlatformUtils : CAPIBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (NSString *)base64EncodeToStringValue:(NSString *)value __attribute__((swift_name("base64EncodeToString(value:)")));
 - (id)getBuildNumber __attribute__((swift_name("getBuildNumber()")));
 - (int64_t)getCurrentTimestamp __attribute__((swift_name("getCurrentTimestamp()")));
 - (CAPIPlatformName *)getPlatformType __attribute__((swift_name("getPlatformType()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("AudioReceiveStats")))
-@interface CAPIAudioReceiveStats : CAPIBase
-- (instancetype)initWithSsrc:(int64_t)ssrc bytesReceived:(int64_t)bytesReceived audioLevel:(double)audioLevel totalSamplesReceived:(int64_t)totalSamplesReceived concealedSamples:(int64_t)concealedSamples packetsReceived:(int64_t)packetsReceived packetsLost:(int32_t)packetsLost jitterBufferDelay:(double)jitterBufferDelay trackIdentifier:(NSString * _Nullable)trackIdentifier jitter:(double)jitter __attribute__((swift_name("init(ssrc:bytesReceived:audioLevel:totalSamplesReceived:concealedSamples:packetsReceived:packetsLost:jitterBufferDelay:trackIdentifier:jitter:)"))) __attribute__((objc_designated_initializer));
-- (int64_t)component1 __attribute__((swift_name("component1()")));
-- (double)component10 __attribute__((swift_name("component10()")));
-- (int64_t)component2 __attribute__((swift_name("component2()")));
-- (double)component3 __attribute__((swift_name("component3()")));
-- (int64_t)component4 __attribute__((swift_name("component4()")));
-- (int64_t)component5 __attribute__((swift_name("component5()")));
-- (int64_t)component6 __attribute__((swift_name("component6()")));
-- (int32_t)component7 __attribute__((swift_name("component7()")));
-- (double)component8 __attribute__((swift_name("component8()")));
-- (NSString * _Nullable)component9 __attribute__((swift_name("component9()")));
-- (CAPIAudioReceiveStats *)doCopySsrc:(int64_t)ssrc bytesReceived:(int64_t)bytesReceived audioLevel:(double)audioLevel totalSamplesReceived:(int64_t)totalSamplesReceived concealedSamples:(int64_t)concealedSamples packetsReceived:(int64_t)packetsReceived packetsLost:(int32_t)packetsLost jitterBufferDelay:(double)jitterBufferDelay trackIdentifier:(NSString * _Nullable)trackIdentifier jitter:(double)jitter __attribute__((swift_name("doCopy(ssrc:bytesReceived:audioLevel:totalSamplesReceived:concealedSamples:packetsReceived:packetsLost:jitterBufferDelay:trackIdentifier:jitter:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) double audioLevel __attribute__((swift_name("audioLevel")));
-@property (readonly) int64_t bytesReceived __attribute__((swift_name("bytesReceived")));
-@property (readonly) int64_t concealedSamples __attribute__((swift_name("concealedSamples")));
-@property (readonly) double jitter __attribute__((swift_name("jitter")));
-@property (readonly) double jitterBufferDelay __attribute__((swift_name("jitterBufferDelay")));
-@property (readonly) int32_t packetsLost __attribute__((swift_name("packetsLost")));
-@property (readonly) int64_t packetsReceived __attribute__((swift_name("packetsReceived")));
-@property (readonly) int64_t ssrc __attribute__((swift_name("ssrc")));
-@property (readonly) int64_t totalSamplesReceived __attribute__((swift_name("totalSamplesReceived")));
-@property (readonly) NSString * _Nullable trackIdentifier __attribute__((swift_name("trackIdentifier")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("AudioSendStats")))
-@interface CAPIAudioSendStats : CAPIBase
-- (instancetype)initWithSsrc:(int64_t)ssrc trackIdentifier:(NSString *)trackIdentifier audioLevel:(double)audioLevel totalSampleDuration:(double)totalSampleDuration totalAudioEnergy:(double)totalAudioEnergy packetsSent:(int64_t)packetsSent bytesSent:(int64_t)bytesSent transportId:(NSString *)transportId roundTripTime:(double)roundTripTime packetLost:(int32_t)packetLost jitter:(double)jitter __attribute__((swift_name("init(ssrc:trackIdentifier:audioLevel:totalSampleDuration:totalAudioEnergy:packetsSent:bytesSent:transportId:roundTripTime:packetLost:jitter:)"))) __attribute__((objc_designated_initializer));
-- (int64_t)component1 __attribute__((swift_name("component1()")));
-- (int32_t)component10 __attribute__((swift_name("component10()")));
-- (double)component11 __attribute__((swift_name("component11()")));
-- (NSString *)component2 __attribute__((swift_name("component2()")));
-- (double)component3 __attribute__((swift_name("component3()")));
-- (double)component4 __attribute__((swift_name("component4()")));
-- (double)component5 __attribute__((swift_name("component5()")));
-- (int64_t)component6 __attribute__((swift_name("component6()")));
-- (int64_t)component7 __attribute__((swift_name("component7()")));
-- (NSString *)component8 __attribute__((swift_name("component8()")));
-- (double)component9 __attribute__((swift_name("component9()")));
-- (CAPIAudioSendStats *)doCopySsrc:(int64_t)ssrc trackIdentifier:(NSString *)trackIdentifier audioLevel:(double)audioLevel totalSampleDuration:(double)totalSampleDuration totalAudioEnergy:(double)totalAudioEnergy packetsSent:(int64_t)packetsSent bytesSent:(int64_t)bytesSent transportId:(NSString *)transportId roundTripTime:(double)roundTripTime packetLost:(int32_t)packetLost jitter:(double)jitter __attribute__((swift_name("doCopy(ssrc:trackIdentifier:audioLevel:totalSampleDuration:totalAudioEnergy:packetsSent:bytesSent:transportId:roundTripTime:packetLost:jitter:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) double audioLevel __attribute__((swift_name("audioLevel")));
-@property (readonly) int64_t bytesSent __attribute__((swift_name("bytesSent")));
-@property (readonly) double jitter __attribute__((swift_name("jitter")));
-@property (readonly) int32_t packetLost __attribute__((swift_name("packetLost")));
-@property (readonly) int64_t packetsSent __attribute__((swift_name("packetsSent")));
-@property (readonly) double roundTripTime __attribute__((swift_name("roundTripTime")));
-@property (readonly) int64_t ssrc __attribute__((swift_name("ssrc")));
-@property (readonly) double totalAudioEnergy __attribute__((swift_name("totalAudioEnergy")));
-@property (readonly) double totalSampleDuration __attribute__((swift_name("totalSampleDuration")));
-@property (readonly) NSString *trackIdentifier __attribute__((swift_name("trackIdentifier")));
-@property (readonly) NSString *transportId __attribute__((swift_name("transportId")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -516,76 +461,6 @@ __attribute__((swift_name("CallOptions")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CandidatePairStats")))
-@interface CAPICandidatePairStats : CAPIBase
-- (instancetype)initWithBytesSent:(int32_t)bytesSent bytesReceived:(int32_t)bytesReceived availableOutBitrate:(int32_t)availableOutBitrate requestsSent:(int32_t)requestsSent responsesSent:(int32_t)responsesSent consentRequestsSent:(int32_t)consentRequestsSent requestsReceived:(int32_t)requestsReceived responsesReceived:(int32_t)responsesReceived writable:(BOOL)writable localAddress:(NSString *)localAddress remoteAddress:(NSString *)remoteAddress localCandidateType:(NSString *)localCandidateType remoteCandidateType:(NSString *)remoteCandidateType roundTripTime:(double)roundTripTime __attribute__((swift_name("init(bytesSent:bytesReceived:availableOutBitrate:requestsSent:responsesSent:consentRequestsSent:requestsReceived:responsesReceived:writable:localAddress:remoteAddress:localCandidateType:remoteCandidateType:roundTripTime:)"))) __attribute__((objc_designated_initializer));
-- (int32_t)component1 __attribute__((swift_name("component1()")));
-- (NSString *)component10 __attribute__((swift_name("component10()")));
-- (NSString *)component11 __attribute__((swift_name("component11()")));
-- (NSString *)component12 __attribute__((swift_name("component12()")));
-- (NSString *)component13 __attribute__((swift_name("component13()")));
-- (double)component14 __attribute__((swift_name("component14()")));
-- (int32_t)component2 __attribute__((swift_name("component2()")));
-- (int32_t)component3 __attribute__((swift_name("component3()")));
-- (int32_t)component4 __attribute__((swift_name("component4()")));
-- (int32_t)component5 __attribute__((swift_name("component5()")));
-- (int32_t)component6 __attribute__((swift_name("component6()")));
-- (int32_t)component7 __attribute__((swift_name("component7()")));
-- (int32_t)component8 __attribute__((swift_name("component8()")));
-- (BOOL)component9 __attribute__((swift_name("component9()")));
-- (CAPICandidatePairStats *)doCopyBytesSent:(int32_t)bytesSent bytesReceived:(int32_t)bytesReceived availableOutBitrate:(int32_t)availableOutBitrate requestsSent:(int32_t)requestsSent responsesSent:(int32_t)responsesSent consentRequestsSent:(int32_t)consentRequestsSent requestsReceived:(int32_t)requestsReceived responsesReceived:(int32_t)responsesReceived writable:(BOOL)writable localAddress:(NSString *)localAddress remoteAddress:(NSString *)remoteAddress localCandidateType:(NSString *)localCandidateType remoteCandidateType:(NSString *)remoteCandidateType roundTripTime:(double)roundTripTime __attribute__((swift_name("doCopy(bytesSent:bytesReceived:availableOutBitrate:requestsSent:responsesSent:consentRequestsSent:requestsReceived:responsesReceived:writable:localAddress:remoteAddress:localCandidateType:remoteCandidateType:roundTripTime:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int32_t availableOutBitrate __attribute__((swift_name("availableOutBitrate")));
-@property (readonly) int32_t bytesReceived __attribute__((swift_name("bytesReceived")));
-@property (readonly) int32_t bytesSent __attribute__((swift_name("bytesSent")));
-@property (readonly) int32_t consentRequestsSent __attribute__((swift_name("consentRequestsSent")));
-@property (readonly) NSString *localAddress __attribute__((swift_name("localAddress")));
-@property (readonly) NSString *localCandidateType __attribute__((swift_name("localCandidateType")));
-@property (readonly) NSString *remoteAddress __attribute__((swift_name("remoteAddress")));
-@property (readonly) NSString *remoteCandidateType __attribute__((swift_name("remoteCandidateType")));
-@property (readonly) int32_t requestsReceived __attribute__((swift_name("requestsReceived")));
-@property (readonly) int32_t requestsSent __attribute__((swift_name("requestsSent")));
-@property (readonly) int32_t responsesReceived __attribute__((swift_name("responsesReceived")));
-@property (readonly) int32_t responsesSent __attribute__((swift_name("responsesSent")));
-@property (readonly) double roundTripTime __attribute__((swift_name("roundTripTime")));
-@property (readonly) BOOL writable __attribute__((swift_name("writable")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("InvitationInfo")))
-@interface CAPIInvitationInfo : CAPIBase
-- (instancetype)initWithOfferSdp:(NSString *)offerSdp offerMsgId:(int32_t)offerMsgId __attribute__((swift_name("init(offerSdp:offerMsgId:)"))) __attribute__((objc_designated_initializer));
-- (NSString *)component1 __attribute__((swift_name("component1()")));
-- (int32_t)component2 __attribute__((swift_name("component2()")));
-- (CAPIInvitationInfo *)doCopyOfferSdp:(NSString *)offerSdp offerMsgId:(int32_t)offerMsgId __attribute__((swift_name("doCopy(offerSdp:offerMsgId:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int32_t offerMsgId __attribute__((swift_name("offerMsgId")));
-@property (readonly) NSString *offerSdp __attribute__((swift_name("offerSdp")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("LocalStatistics")))
-@interface CAPILocalStatistics : CAPIBase
-- (instancetype)initWithTimeStamp:(int64_t)timeStamp audioSendStats:(CAPIAudioSendStats * _Nullable)audioSendStats audioReceiveStats:(CAPIAudioReceiveStats * _Nullable)audioReceiveStats candidatePairStats:(CAPICandidatePairStats * _Nullable)candidatePairStats __attribute__((swift_name("init(timeStamp:audioSendStats:audioReceiveStats:candidatePairStats:)"))) __attribute__((objc_designated_initializer));
-- (int64_t)component1 __attribute__((swift_name("component1()")));
-- (CAPIAudioSendStats * _Nullable)component2 __attribute__((swift_name("component2()")));
-- (CAPIAudioReceiveStats * _Nullable)component3 __attribute__((swift_name("component3()")));
-- (CAPICandidatePairStats * _Nullable)component4 __attribute__((swift_name("component4()")));
-- (CAPILocalStatistics *)doCopyTimeStamp:(int64_t)timeStamp audioSendStats:(CAPIAudioSendStats * _Nullable)audioSendStats audioReceiveStats:(CAPIAudioReceiveStats * _Nullable)audioReceiveStats candidatePairStats:(CAPICandidatePairStats * _Nullable)candidatePairStats __attribute__((swift_name("doCopy(timeStamp:audioSendStats:audioReceiveStats:candidatePairStats:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) CAPIAudioReceiveStats * _Nullable audioReceiveStats __attribute__((swift_name("audioReceiveStats")));
-@property (readonly) CAPIAudioSendStats * _Nullable audioSendStats __attribute__((swift_name("audioSendStats")));
-@property (readonly) CAPICandidatePairStats * _Nullable candidatePairStats __attribute__((swift_name("candidatePairStats")));
-@property (readonly) int64_t timeStamp __attribute__((swift_name("timeStamp")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("PlatformName")))
 @interface CAPIPlatformName : CAPIKotlinEnum<CAPIPlatformName *>
 + (instancetype)alloc __attribute__((unavailable));
@@ -598,37 +473,6 @@ __attribute__((swift_name("PlatformName")))
 + (CAPIKotlinArray<CAPIPlatformName *> *)values __attribute__((swift_name("values()")));
 @end;
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("UserProfile")))
-@interface CAPIUserProfile : CAPIBase
-- (instancetype)initWithClientId:(NSString *)clientId sourceId:(NSString *)sourceId customDomain:(NSString *)customDomain accountToken:(NSString *)accountToken appSid:(NSString *)appSid PNSToken:(NSString *)PNSToken baseURL:(NSString *)baseURL __attribute__((swift_name("init(clientId:sourceId:customDomain:accountToken:appSid:PNSToken:baseURL:)"))) __attribute__((objc_designated_initializer));
-- (NSString *)component1 __attribute__((swift_name("component1()")));
-- (NSString *)component2 __attribute__((swift_name("component2()")));
-- (NSString *)component3 __attribute__((swift_name("component3()")));
-- (NSString *)component4 __attribute__((swift_name("component4()")));
-- (NSString *)component5 __attribute__((swift_name("component5()")));
-- (NSString *)component6 __attribute__((swift_name("component6()")));
-- (NSString *)component7 __attribute__((swift_name("component7()")));
-- (CAPIUserProfile *)doCopyClientId:(NSString *)clientId sourceId:(NSString *)sourceId customDomain:(NSString *)customDomain accountToken:(NSString *)accountToken appSid:(NSString *)appSid PNSToken:(NSString *)PNSToken baseURL:(NSString *)baseURL __attribute__((swift_name("doCopy(clientId:sourceId:customDomain:accountToken:appSid:PNSToken:baseURL:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *PNSToken __attribute__((swift_name("PNSToken")));
-@property (readonly) NSString *accountToken __attribute__((swift_name("accountToken")));
-@property (readonly) NSString *appSid __attribute__((swift_name("appSid")));
-@property (readonly) NSString *baseURL __attribute__((swift_name("baseURL")));
-@property (readonly) NSString *clientId __attribute__((swift_name("clientId")));
-@property (readonly) NSString *customDomain __attribute__((swift_name("customDomain")));
-@property (readonly) NSString *sourceId __attribute__((swift_name("sourceId")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("HTTPHandler")))
-@interface CAPIHTTPHandler : CAPIBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-@end;
-
 __attribute__((swift_name("PlatformSocketListener")))
 @protocol CAPIPlatformSocketListener
 @required
@@ -637,6 +481,12 @@ __attribute__((swift_name("PlatformSocketListener")))
 - (void)onFailureT:(CAPIKotlinThrowable *)t __attribute__((swift_name("onFailure(t:)")));
 - (void)onMessageMsg:(NSString *)msg __attribute__((swift_name("onMessage(msg:)")));
 - (void)onOpen __attribute__((swift_name("onOpen()")));
+@end;
+
+__attribute__((swift_name("WSHandlerCallback")))
+@protocol CAPIWSHandlerCallback
+@required
+- (void)onWsClosedCode:(int32_t)code __attribute__((swift_name("onWsClosed(code:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
