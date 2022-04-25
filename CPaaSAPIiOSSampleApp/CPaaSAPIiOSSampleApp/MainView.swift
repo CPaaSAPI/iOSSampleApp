@@ -7,37 +7,29 @@
 
 import SwiftUI
 import CpaasAPI
+import Combine
 let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 let bgButtonColor = Color(red:50.0/255.0, green: 64.0/255.0, blue: 73.0/255.0, opacity: 1.0)
 struct MainView: View {
-    @State var userID: String = ""
-    @State var destinationID: String = ""
+    var userID: String = "USER_ID"
+    var destinationID: String = "DESTINATION_ID"
+    @State private var isAWSModeOn = false
+
     @EnvironmentObject var model :CpaasModel
     var body: some View {
         
         NavigationView {
             VStack(alignment: .center, spacing: 10.0){
-                TextField("UserID", text: $userID)
-                    .padding()
-                    .background(lightGreyColor)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 5)
-                
-                TextField("DestinationID", text: $destinationID)
-                    .padding()
-                    .background(lightGreyColor)
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 5)
-                HStack{
+                VStack{
                     Button (action: {
                         UIApplication.shared.endEditing()
-                        model.register(userID: userID)
+                        model.register(userID: userID, callMode: isAWSModeOn)
                     } ){
                         Text("Registration")
                     }
                     .padding(.horizontal)
                     .font(.headline)
-                    .frame(width: 150.0, height: 40.0).foregroundColor(.white)
+                    .frame(width: 250.0, height: 60.0).foregroundColor(.white)
                     .background(bgButtonColor)
                     .cornerRadius(8.0)
                     
@@ -45,13 +37,21 @@ struct MainView: View {
                         UIApplication.shared.endEditing()
                         model.start(destinationID: destinationID)
                     } ){
-                        Text("Call")
+                        Text("Start Call")
                     }
                     .padding(.horizontal)
                     .font(.headline)
-                    .frame(width: 150.0, height: 40.0).foregroundColor(.white)
+                    .frame(width: 250.0, height: 60.0).foregroundColor(.white)
                     .background(bgButtonColor)
                     .cornerRadius(8.0)
+                    Spacer()
+                            .frame(height: 25)
+                    
+                    Toggle(isOn: $isAWSModeOn) {
+                        Text("AWS")
+                          .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+//
                 }
                 NavigationLink(destination:  CallView().environmentObject(model), isActive: $model.showCallView) {}.isDetailLink(false)
 
