@@ -17,28 +17,35 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack{
-                    Button (action: {
-                        model.register(userID: userID)
-                    } ){
-                        Text("Registration")
-                    }
-                    .font(.headline)
-                    .frame(width: 250.0, height: 60.0).foregroundColor(.white)
-                    .background(bgButtonColor)
-                    .cornerRadius(8.0)
-                    .padding(.bottom,10)
-                    
-                    Button (action: {
-                        model.start(destinationID: destinationID)
-                    } ){
-                        Text("Start Call")
-                    }
-                    .font(.headline)
-                    .frame(width: 250.0, height: 60.0).foregroundColor(.white)
-                    .background(bgButtonColor)
-                    .cornerRadius(8.0)
-                     NavigationLink(destination:  CallView().environmentObject(model), isActive: $model.showCallView) {}.isDetailLink(false)
-
+               Image("Mavenir-Logo")
+               .resizable()
+               .aspectRatio(12/4, contentMode: .fit)
+               .padding([.leading,.trailing,.bottom],50)
+                
+                Button (action: {
+                    model.register(userID: userID)
+                } ){
+                    Text("Registration")
+                }
+                .font(.headline)
+                .frame(width: 250.0, height: 60.0).foregroundColor(.white)
+                .background(bgButtonColor)
+                .cornerRadius(8.0)
+                .padding(.bottom,10)
+                
+                Button (action: {
+                    model.start(destinationID: destinationID)
+                } ){
+                    Text("Start Call")
+                }
+                .font(.headline)
+                .frame(width: 250.0, height: 60.0).foregroundColor(.white)
+                .background(bgButtonColor)
+                .cornerRadius(8.0)
+                
+                Spacer()
+                NavigationLink(destination:  CallView().environmentObject(model), isActive: $model.showCallView) {}.isDetailLink(false)
+                
             }
             .padding()
         }
