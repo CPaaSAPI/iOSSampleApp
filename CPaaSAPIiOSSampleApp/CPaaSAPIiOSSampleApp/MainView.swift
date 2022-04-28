@@ -17,6 +17,14 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack{
+                
+                Image("Mavenir-Logo")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.leading,50.0)
+                    .padding(.trailing,50.0)
+                    .frame(height: 100.0)
+                    .padding(.bottom,50.0)
                     Button (action: {
                         model.register(userID: userID)
                     } ){
@@ -37,6 +45,7 @@ struct MainView: View {
                     .frame(width: 250.0, height: 60.0).foregroundColor(.white)
                     .background(bgButtonColor)
                     .cornerRadius(8.0)
+                     Spacer()
                      NavigationLink(destination:  CallView().environmentObject(model), isActive: $model.showCallView) {}.isDetailLink(false)
 
             }
