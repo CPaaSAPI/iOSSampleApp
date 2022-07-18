@@ -13,11 +13,22 @@
 		5EED75A727FC3163007FAD3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED75A527FC3163007FAD3D /* LaunchScreen.storyboard */; };
 		5EED75AF27FC5BF2007FAD3D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED75AE27FC5BF2007FAD3D /* MainView.swift */; };
 		5EED75B127FC6A16007FAD3D /* CpaasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED75B027FC6A16007FAD3D /* CpaasModel.swift */; };
-		5EED75C627FC72BB007FAD3D /* CpaasAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */; platformFilter = ios; };
-		5EED75C727FC72BB007FAD3D /* CpaasAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EED75CA27FC733C007FAD3D /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; };
 		5EED75CB27FC733C007FAD3D /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EFD1F4427FCC7AD009E9388 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD1F4327FCC7AD009E9388 /* CallView.swift */; };
+		FDFB7DD2288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */; };
+		FDFB7DD3288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFB7DD4288477F8003E7727 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */; };
+		FDFB7DD5288477F8003E7727 /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFB7DD6288477F8003E7727 /* AWSAuthCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */; };
+		FDFB7DD7288477F8003E7727 /* AWSAuthCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFB7DD8288477F8003E7727 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD0288477F8003E7727 /* AWSCore.framework */; };
+		FDFB7DD9288477F8003E7727 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD0288477F8003E7727 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFB7DDA288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */; };
+		FDFB7DDB288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFB7DDD288477FE003E7727 /* CpaaSAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */; };
+		FDFB7DDE288477FE003E7727 /* CpaaSAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFB7DE02885556C003E7727 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB7DDF2885556C003E7727 /* UIHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,8 +38,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5EED75C727FC72BB007FAD3D /* CpaasAPI.framework in Embed Frameworks */,
+				FDFB7DD5288477F8003E7727 /* AWSMobileClient.framework in Embed Frameworks */,
+				FDFB7DDB288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
+				FDFB7DD9288477F8003E7727 /* AWSCore.framework in Embed Frameworks */,
+				FDFB7DD3288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
 				5EED75CB27FC733C007FAD3D /* WebRTC.framework in Embed Frameworks */,
+				FDFB7DD7288477F8003E7727 /* AWSAuthCore.framework in Embed Frameworks */,
+				FDFB7DDE288477FE003E7727 /* CpaaSAPI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,9 +60,15 @@
 		5EED75A827FC3163007FAD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EED75AE27FC5BF2007FAD3D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5EED75B027FC6A16007FAD3D /* CpaasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpaasModel.swift; sourceTree = "<group>"; };
-		5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CpaasAPI.framework; sourceTree = "<group>"; };
 		5EED75C827FC732C007FAD3D /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 		5EFD1F4327FCC7AD009E9388 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
+		FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = "<group>"; };
+		FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
+		FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAuthCore.framework; sourceTree = "<group>"; };
+		FDFB7DD0288477F8003E7727 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
+		FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = "<group>"; };
+		FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CpaaSAPI.framework; sourceTree = "<group>"; };
+		FDFB7DDF2885556C003E7727 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +76,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EED75C627FC72BB007FAD3D /* CpaasAPI.framework in Frameworks */,
+				FDFB7DD4288477F8003E7727 /* AWSMobileClient.framework in Frameworks */,
+				FDFB7DDA288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				FDFB7DD8288477F8003E7727 /* AWSCore.framework in Frameworks */,
+				FDFB7DD2288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
 				5EED75CA27FC733C007FAD3D /* WebRTC.framework in Frameworks */,
+				FDFB7DD6288477F8003E7727 /* AWSAuthCore.framework in Frameworks */,
+				FDFB7DDD288477FE003E7727 /* CpaaSAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +117,7 @@
 				5EED75AE27FC5BF2007FAD3D /* MainView.swift */,
 				5EED75B027FC6A16007FAD3D /* CpaasModel.swift */,
 				5EFD1F4327FCC7AD009E9388 /* CallView.swift */,
+				FDFB7DDF2885556C003E7727 /* UIHelpers.swift */,
 			);
 			path = CPaaSAPIiOSSampleApp;
 			sourceTree = "<group>";
@@ -97,8 +125,13 @@
 		5EED75B227FC6F7A007FAD3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */,
+				FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */,
+				FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */,
+				FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */,
+				FDFB7DD0288477F8003E7727 /* AWSCore.framework */,
+				FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */,
 				5EED75C827FC732C007FAD3D /* WebRTC.framework */,
-				5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +210,7 @@
 				5EED75B127FC6A16007FAD3D /* CpaasModel.swift in Sources */,
 				5EED759B27FC3160007FAD3D /* AppDelegate.swift in Sources */,
 				5EFD1F4427FCC7AD009E9388 /* CallView.swift in Sources */,
+				FDFB7DE02885556C003E7727 /* UIHelpers.swift in Sources */,
 				5EED759D27FC3160007FAD3D /* SceneDelegate.swift in Sources */,
 				5EED75AF27FC5BF2007FAD3D /* MainView.swift in Sources */,
 			);
@@ -346,6 +380,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -383,6 +418,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
