@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class CSAPICPaaSAPI, CSAPICPaaSAPILogFileProvider, CSAPICPaaSAPISettings, CSAPIServiceType, CSAPICPaaSReason, CSAPIKotlinEnumCompanion, CSAPIKotlinEnum<E>, CSAPIKotlinArray<T>, CSAPICPaaSResultCompanion, CSAPIKotlinUnit, CSAPICPaaSResult<__covariant T, TException>, CSAPIVideoViewProvider, CSAPIViewAttachmentError, CSAPIViewContentMode, CSAPILocalCameraSettings, CSAPICallOptions, CSAPICallStartError, CSAPICallStartErrorNotRegisteredError, CSAPILocalCameraResolution, UIView, CSAPIOperationType, CSAPIKotlinThrowable, CSAPIKotlinException, CSAPICPaaSError, CSAPIOpenCloseVideoError, CSAPISessionDescriptionType, NSURL, CSAPILogLevel, NSError, CSAPICommonLib, CSAPIConst, CSAPIPlatformName, CSAPICallInfo, CSAPICallOptionService, CSAPICognitoResult<T>, CSAPIKotlinByteIterator, CSAPIKotlinByteArray, NSData, CSAPIKotlinx_serialization_coreSerializersModule, CSAPIKotlinx_serialization_coreSerialKind, CSAPIKotlinNothing;
+@class CSAPICPaaSAPI, NSURL, CSAPICPaaSAPISettings, CSAPIServiceType, CSAPIREGISTRATION_STATE, CSAPICPaaSResultCompanion, CSAPIKotlinUnit, CSAPICPaaSResult<__covariant T, TException>, CSAPIKotlinEnumCompanion, CSAPIKotlinEnum<E>, CSAPIKotlinArray<T>, CSAPICPaaSReason, CSAPICallOptions, CSAPICallStartError, CSAPICallStartErrorNotRegisteredError, CSAPIVideoViewProvider, CSAPIViewAttachmentError, CSAPIViewContentMode, CSAPILocalCameraSettings, CSAPILocalCameraResolution, UIView, CSAPIOperationType, CSAPIKotlinThrowable, CSAPIKotlinException, CSAPICPaaSError, CSAPIOpenCloseVideoError, CSAPISessionDescriptionType, CSAPILogLevel, NSError, CSAPICommonLib, CSAPIConst, CSAPIConstStorage, CSAPIPlatformName, CSAPICallInfo, CSAPICallOptionService, CSAPICognitoResult<T>, CSAPIKotlinByteIterator, CSAPIKotlinByteArray, NSData, CSAPIKotlinx_serialization_coreSerializersModule, CSAPIKotlinx_serialization_coreSerialKind, CSAPIKotlinNothing;
 
-@protocol CSAPICPaaSAPICb, CSAPIIVoice, CSAPICPaaSCallEvents, CSAPIKotlinComparable, CSAPIIBaseVideoProvider, CSAPICPaaSCall, CSAPIILocalVideoProvider, CSAPIIRemoteVideoProvider, CSAPIKotlinIterator, CSAPIKotlinx_serialization_coreSerializersModuleCollector, CSAPIKotlinx_serialization_coreKSerializer, CSAPIKotlinKClass, CSAPIKotlinx_serialization_coreSerializationStrategy, CSAPIKotlinx_serialization_coreDeserializationStrategy, CSAPIKotlinx_serialization_coreEncoder, CSAPIKotlinx_serialization_coreSerialDescriptor, CSAPIKotlinx_serialization_coreDecoder, CSAPIKotlinKDeclarationContainer, CSAPIKotlinKAnnotatedElement, CSAPIKotlinKClassifier, CSAPIKotlinx_serialization_coreCompositeEncoder, CSAPIKotlinAnnotation, CSAPIKotlinx_serialization_coreCompositeDecoder;
+@protocol CSAPICPaaSAPICb, CSAPIIVoice, CSAPIKotlinComparable, CSAPICPaaSCallEvents, CSAPICPaaSCall, CSAPIIBaseVideoProvider, CSAPIILocalVideoProvider, CSAPIIRemoteVideoProvider, CSAPIKotlinIterator, CSAPIKotlinx_serialization_coreSerializersModuleCollector, CSAPIKotlinx_serialization_coreKSerializer, CSAPIKotlinKClass, CSAPIKotlinx_serialization_coreSerializationStrategy, CSAPIKotlinx_serialization_coreDeserializationStrategy, CSAPIKotlinx_serialization_coreEncoder, CSAPIKotlinx_serialization_coreSerialDescriptor, CSAPIKotlinx_serialization_coreDecoder, CSAPIKotlinKDeclarationContainer, CSAPIKotlinKAnnotatedElement, CSAPIKotlinKClassifier, CSAPIKotlinx_serialization_coreCompositeEncoder, CSAPIKotlinAnnotation, CSAPIKotlinx_serialization_coreCompositeDecoder;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -151,7 +151,7 @@ __attribute__((swift_name("CPaaSAPI")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)cPaaSAPI __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) CSAPICPaaSAPI *shared __attribute__((swift_name("shared")));
-- (CSAPICPaaSAPILogFileProvider *)getFileLogProvider __attribute__((swift_name("getFileLogProvider()")));
+- (NSURL * _Nullable)getFilePath __attribute__((swift_name("getFilePath()")));
 - (void)logout __attribute__((swift_name("logout()")));
 - (void)registerSettings:(CSAPICPaaSAPISettings *)settings cpaasAPICb:(id<CSAPICPaaSAPICb>)cpaasAPICb __attribute__((swift_name("register(settings:cpaasAPICb:)")));
 - (void)updateInitParamsSettings:(CSAPICPaaSAPISettings *)settings __attribute__((swift_name("updateInitParams(settings:)")));
@@ -162,68 +162,7 @@ __attribute__((swift_name("CPaaSAPICb")))
 @protocol CSAPICPaaSAPICb
 @required
 - (void)onIncomingCallCallId:(NSString *)callId callerId:(NSString *)callerId serviceType:(CSAPIServiceType *)serviceType __attribute__((swift_name("onIncomingCall(callId:callerId:serviceType:)")));
-- (void)onRegistrationCompleteSuccess:(BOOL)success __attribute__((swift_name("onRegistrationComplete(success:)")));
-@end;
-
-__attribute__((swift_name("CPaaSCall")))
-@protocol CSAPICPaaSCall
-@required
-- (void)endCall __attribute__((swift_name("endCall()")));
-- (NSString *)getCallId __attribute__((swift_name("getCallId()")));
-- (NSString *)getCandidateTypeData __attribute__((swift_name("getCandidateTypeData()")));
-- (NSString *)getDestinationId __attribute__((swift_name("getDestinationId()")));
-- (CSAPIBoolean * _Nullable)isMute __attribute__((swift_name("isMute()")));
-- (void)muteCompletion:(void (^)(CSAPIBoolean *))completion __attribute__((swift_name("mute(completion:)")));
-- (void)unMuteCompletion:(void (^)(CSAPIBoolean *))completion __attribute__((swift_name("unMute(completion:)")));
-@property id<CSAPICPaaSCallEvents> _Nullable eventListener __attribute__((swift_name("eventListener")));
-@end;
-
-__attribute__((swift_name("CPaaSCallEvents")))
-@protocol CSAPICPaaSCallEvents
-@required
-- (void)onCallEndReason:(CSAPICPaaSReason *)reason __attribute__((swift_name("onCallEnd(reason:)")));
-- (void)onConnected __attribute__((swift_name("onConnected()")));
-- (void)onConnectedFailureReason:(CSAPICPaaSReason *)reason __attribute__((swift_name("onConnectedFailure(reason:)")));
-- (void)onReconnectingReason:(CSAPICPaaSReason *)reason __attribute__((swift_name("onReconnecting(reason:)")));
-- (void)onRinging __attribute__((swift_name("onRinging()")));
-@end;
-
-__attribute__((swift_name("KotlinComparable")))
-@protocol CSAPIKotlinComparable
-@required
-- (int32_t)compareToOther:(id _Nullable)other __attribute__((swift_name("compareTo(other:)")));
-@end;
-
-__attribute__((swift_name("KotlinEnum")))
-@interface CSAPIKotlinEnum<E> : CSAPIBase <CSAPIKotlinComparable>
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) CSAPIKotlinEnumCompanion *companion __attribute__((swift_name("companion")));
-- (int32_t)compareToOther:(E)other __attribute__((swift_name("compareTo(other:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *name __attribute__((swift_name("name")));
-@property (readonly) int32_t ordinal __attribute__((swift_name("ordinal")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CPaaSReason")))
-@interface CSAPICPaaSReason : CSAPIKotlinEnum<CSAPICPaaSReason *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) CSAPICPaaSReason *busy __attribute__((swift_name("busy")));
-@property (class, readonly) CSAPICPaaSReason *reject __attribute__((swift_name("reject")));
-@property (class, readonly) CSAPICPaaSReason *badRequest __attribute__((swift_name("badRequest")));
-@property (class, readonly) CSAPICPaaSReason *unauthorized __attribute__((swift_name("unauthorized")));
-@property (class, readonly) CSAPICPaaSReason *notFound __attribute__((swift_name("notFound")));
-@property (class, readonly) CSAPICPaaSReason *gone __attribute__((swift_name("gone")));
-@property (class, readonly) CSAPICPaaSReason *timeOut __attribute__((swift_name("timeOut")));
-@property (class, readonly) CSAPICPaaSReason *rtpLost __attribute__((swift_name("rtpLost")));
-@property (class, readonly) CSAPICPaaSReason *network __attribute__((swift_name("network")));
-@property (class, readonly) CSAPICPaaSReason *byUser __attribute__((swift_name("byUser")));
-@property (class, readonly) CSAPICPaaSReason *byServer __attribute__((swift_name("byServer")));
-+ (CSAPIKotlinArray<CSAPICPaaSReason *> *)values __attribute__((swift_name("values()")));
+- (void)onRegistrationStateState:(CSAPIREGISTRATION_STATE *)state __attribute__((swift_name("onRegistrationState(state:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -259,6 +198,87 @@ __attribute__((swift_name("CPaaSResultFailure")))
 @property (readonly) TException _Nullable exception __attribute__((swift_name("exception")));
 @end;
 
+__attribute__((swift_name("KotlinComparable")))
+@protocol CSAPIKotlinComparable
+@required
+- (int32_t)compareToOther:(id _Nullable)other __attribute__((swift_name("compareTo(other:)")));
+@end;
+
+__attribute__((swift_name("KotlinEnum")))
+@interface CSAPIKotlinEnum<E> : CSAPIBase <CSAPIKotlinComparable>
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) CSAPIKotlinEnumCompanion *companion __attribute__((swift_name("companion")));
+- (int32_t)compareToOther:(E)other __attribute__((swift_name("compareTo(other:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) int32_t ordinal __attribute__((swift_name("ordinal")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("REGISTRATION_STATE")))
+@interface CSAPIREGISTRATION_STATE : CSAPIKotlinEnum<CSAPIREGISTRATION_STATE *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) CSAPIREGISTRATION_STATE *registered __attribute__((swift_name("registered")));
+@property (class, readonly) CSAPIREGISTRATION_STATE *registerFailed __attribute__((swift_name("registerFailed")));
++ (CSAPIKotlinArray<CSAPIREGISTRATION_STATE *> *)values __attribute__((swift_name("values()")));
+@end;
+
+__attribute__((swift_name("CPaaSCall")))
+@protocol CSAPICPaaSCall
+@required
+- (void)endCall __attribute__((swift_name("endCall()")));
+- (NSString *)getCallId __attribute__((swift_name("getCallId()")));
+- (NSString *)getCandidateTypeData __attribute__((swift_name("getCandidateTypeData()")));
+- (NSString *)getDestinationId __attribute__((swift_name("getDestinationId()")));
+- (CSAPIBoolean * _Nullable)isMute __attribute__((swift_name("isMute()")));
+- (void)muteCompletion:(void (^)(CSAPIBoolean *))completion __attribute__((swift_name("mute(completion:)")));
+- (void)unMuteCompletion:(void (^)(CSAPIBoolean *))completion __attribute__((swift_name("unMute(completion:)")));
+@property id<CSAPICPaaSCallEvents> _Nullable eventListener __attribute__((swift_name("eventListener")));
+@end;
+
+__attribute__((swift_name("CPaaSCallEvents")))
+@protocol CSAPICPaaSCallEvents
+@required
+- (void)onCallEndReason:(CSAPICPaaSReason *)reason __attribute__((swift_name("onCallEnd(reason:)")));
+- (void)onConnected __attribute__((swift_name("onConnected()")));
+- (void)onConnectedFailureReason:(CSAPICPaaSReason *)reason __attribute__((swift_name("onConnectedFailure(reason:)")));
+- (void)onReconnectingReason:(CSAPICPaaSReason *)reason __attribute__((swift_name("onReconnecting(reason:)")));
+- (void)onRinging __attribute__((swift_name("onRinging()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CPaaSReason")))
+@interface CSAPICPaaSReason : CSAPIKotlinEnum<CSAPICPaaSReason *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) CSAPICPaaSReason *busy __attribute__((swift_name("busy")));
+@property (class, readonly) CSAPICPaaSReason *reject __attribute__((swift_name("reject")));
+@property (class, readonly) CSAPICPaaSReason *badRequest __attribute__((swift_name("badRequest")));
+@property (class, readonly) CSAPICPaaSReason *unauthorized __attribute__((swift_name("unauthorized")));
+@property (class, readonly) CSAPICPaaSReason *notFound __attribute__((swift_name("notFound")));
+@property (class, readonly) CSAPICPaaSReason *gone __attribute__((swift_name("gone")));
+@property (class, readonly) CSAPICPaaSReason *timeOut __attribute__((swift_name("timeOut")));
+@property (class, readonly) CSAPICPaaSReason *rtpLost __attribute__((swift_name("rtpLost")));
+@property (class, readonly) CSAPICPaaSReason *network __attribute__((swift_name("network")));
+@property (class, readonly) CSAPICPaaSReason *byUser __attribute__((swift_name("byUser")));
+@property (class, readonly) CSAPICPaaSReason *byServer __attribute__((swift_name("byServer")));
++ (CSAPIKotlinArray<CSAPICPaaSReason *> *)values __attribute__((swift_name("values()")));
+@end;
+
+__attribute__((swift_name("IVoice")))
+@protocol CSAPIIVoice
+@required
+- (void)connectCallId:(NSString *)callId callOptions:(CSAPICallOptions *)callOptions result:(void (^)(CSAPICPaaSResult<id<CSAPICPaaSCall>, CSAPICallStartError *> *))result __attribute__((swift_name("connect(callId:callOptions:result:)")));
+- (void)createResult:(void (^)(CSAPICPaaSResult<NSString *, CSAPICallStartErrorNotRegisteredError *> *))result __attribute__((swift_name("create(result:)")));
+- (id<CSAPICPaaSCall> _Nullable)getExistingCallCallId:(NSString *)callId __attribute__((swift_name("getExistingCall(callId:)")));
+- (void)rejectCallId:(NSString *)callId __attribute__((swift_name("reject(callId:)")));
+@end;
+
 __attribute__((swift_name("IBaseVideoProvider")))
 @protocol CSAPIIBaseVideoProvider
 @required
@@ -283,21 +303,12 @@ __attribute__((swift_name("IRemoteVideoProvider")))
 @required
 @end;
 
-__attribute__((swift_name("IVoice")))
-@protocol CSAPIIVoice
-@required
-- (void)connectCallId:(NSString *)callId callOptions:(CSAPICallOptions *)callOptions result:(void (^)(CSAPICPaaSResult<id<CSAPICPaaSCall>, CSAPICallStartError *> *))result __attribute__((swift_name("connect(callId:callOptions:result:)")));
-- (void)createResult:(void (^)(CSAPICPaaSResult<NSString *, CSAPICallStartErrorNotRegisteredError *> *))result __attribute__((swift_name("create(result:)")));
-- (id<CSAPICPaaSCall> _Nullable)getExistingCallCallId:(NSString *)callId __attribute__((swift_name("getExistingCall(callId:)")));
-- (void)rejectCallId:(NSString *)callId __attribute__((swift_name("reject(callId:)")));
-@end;
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("LocalCameraResolution")))
 @interface CSAPILocalCameraResolution : CSAPIBase
 - (instancetype)initWithWidth:(int32_t)width height:(int32_t)height __attribute__((swift_name("init(width:height:)"))) __attribute__((objc_designated_initializer));
-- (int32_t)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
-- (int32_t)component2 __attribute__((swift_name("component2()"))) __attribute__((deprecated("use corresponding property instead")));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (int32_t)component2 __attribute__((swift_name("component2()")));
 - (CSAPILocalCameraResolution *)doCopyWidth:(int32_t)width height:(int32_t)height __attribute__((swift_name("doCopy(width:height:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
@@ -310,9 +321,9 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("LocalCameraSettings")))
 @interface CSAPILocalCameraSettings : CSAPIBase
 - (instancetype)initWithFps:(int32_t)fps resolution:(CSAPILocalCameraResolution *)resolution cameraSource:(NSString *)cameraSource __attribute__((swift_name("init(fps:resolution:cameraSource:)"))) __attribute__((objc_designated_initializer));
-- (int32_t)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
-- (CSAPILocalCameraResolution *)component2 __attribute__((swift_name("component2()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component3 __attribute__((swift_name("component3()"))) __attribute__((deprecated("use corresponding property instead")));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (CSAPILocalCameraResolution *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
 - (CSAPILocalCameraSettings *)doCopyFps:(int32_t)fps resolution:(CSAPILocalCameraResolution *)resolution cameraSource:(NSString *)cameraSource __attribute__((swift_name("doCopy(fps:resolution:cameraSource:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
@@ -456,6 +467,13 @@ __attribute__((swift_name("CallStartError.NotRegisteredError")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FileNotExistError")))
+@interface CSAPIFileNotExistError : CSAPICPaaSError
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
 __attribute__((swift_name("OpenCloseVideoError")))
 @interface CSAPIOpenCloseVideoError : CSAPICPaaSError
 @end;
@@ -490,12 +508,6 @@ __attribute__((swift_name("SessionDescriptionType")))
 @property (class, readonly) CSAPISessionDescriptionType *offer __attribute__((swift_name("offer")));
 @property (class, readonly) CSAPISessionDescriptionType *answer __attribute__((swift_name("answer")));
 + (CSAPIKotlinArray<CSAPISessionDescriptionType *> *)values __attribute__((swift_name("values()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CPaaSAPILogFileProvider")))
-@interface CSAPICPaaSAPILogFileProvider : CSAPIBase
-- (instancetype)initWithFile:(NSURL *)file __attribute__((swift_name("init(file:)"))) __attribute__((objc_designated_initializer));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -559,7 +571,6 @@ __attribute__((swift_name("Const")))
 @property (readonly) NSString *GATEWAY_DESTINATION_ID __attribute__((swift_name("GATEWAY_DESTINATION_ID")));
 @property (readonly) NSString *HTTP_URL __attribute__((swift_name("HTTP_URL")));
 @property (readonly) NSString *HTTP_URL_AWS __attribute__((swift_name("HTTP_URL_AWS")));
-@property (readonly) NSString *LIB_VERSION __attribute__((swift_name("LIB_VERSION")));
 @property (readonly) int32_t MAX_STATISTICS_HISTORY_SIZE __attribute__((swift_name("MAX_STATISTICS_HISTORY_SIZE")));
 @property (readonly) int64_t PING_INTERVAL __attribute__((swift_name("PING_INTERVAL")));
 @property (readonly) int64_t PING_TIMEOUT __attribute__((swift_name("PING_TIMEOUT")));
@@ -581,27 +592,37 @@ __attribute__((swift_name("Const")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Const.Storage")))
+@interface CSAPIConstStorage : CSAPIBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)storage __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) CSAPIConstStorage *shared __attribute__((swift_name("shared")));
+@property (readonly) NSString *LOG_PATH __attribute__((swift_name("LOG_PATH")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("PlatformUtils")))
 @interface CSAPIPlatformUtils : CSAPIBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (NSString *)base64EncodeToStringValue:(NSString *)value __attribute__((swift_name("base64EncodeToString(value:)")));
-- (id)getBuildNumber __attribute__((swift_name("getBuildNumber()")));
 - (int64_t)getCurrentTimestamp __attribute__((swift_name("getCurrentTimestamp()")));
 - (CSAPIPlatformName *)getPlatformType __attribute__((swift_name("getPlatformType()")));
+- (NSString *)getVersion __attribute__((swift_name("getVersion()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CPaaSAPISettings")))
 @interface CSAPICPaaSAPISettings : CSAPIBase
 - (instancetype)initWithCustomDomain:(NSString *)customDomain accountSid:(NSString *)accountSid authToken:(NSString *)authToken appSid:(NSString *)appSid clientId:(NSString *)clientId PNSToken:(NSString *)PNSToken baseURL:(NSString *)baseURL __attribute__((swift_name("init(customDomain:accountSid:authToken:appSid:clientId:PNSToken:baseURL:)"))) __attribute__((objc_designated_initializer));
-- (NSString *)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component2 __attribute__((swift_name("component2()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component3 __attribute__((swift_name("component3()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component4 __attribute__((swift_name("component4()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component5 __attribute__((swift_name("component5()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component6 __attribute__((swift_name("component6()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component7 __attribute__((swift_name("component7()"))) __attribute__((deprecated("use corresponding property instead")));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
+- (NSString *)component4 __attribute__((swift_name("component4()")));
+- (NSString *)component5 __attribute__((swift_name("component5()")));
+- (NSString *)component6 __attribute__((swift_name("component6()")));
+- (NSString *)component7 __attribute__((swift_name("component7()")));
 - (CSAPICPaaSAPISettings *)doCopyCustomDomain:(NSString *)customDomain accountSid:(NSString *)accountSid authToken:(NSString *)authToken appSid:(NSString *)appSid clientId:(NSString *)clientId PNSToken:(NSString *)PNSToken baseURL:(NSString *)baseURL __attribute__((swift_name("doCopy(customDomain:accountSid:authToken:appSid:clientId:PNSToken:baseURL:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
@@ -619,9 +640,9 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CallInfo")))
 @interface CSAPICallInfo : CSAPIBase
 - (instancetype)initWithCallId:(NSString *)callId sourceId:(NSString *)sourceId destinationId:(NSString *)destinationId __attribute__((swift_name("init(callId:sourceId:destinationId:)"))) __attribute__((objc_designated_initializer));
-- (NSString *)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component2 __attribute__((swift_name("component2()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSString *)component3 __attribute__((swift_name("component3()"))) __attribute__((deprecated("use corresponding property instead")));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
 - (CSAPICallInfo *)doCopyCallId:(NSString *)callId sourceId:(NSString *)sourceId destinationId:(NSString *)destinationId __attribute__((swift_name("doCopy(callId:sourceId:destinationId:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
@@ -648,7 +669,7 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CallOptions")))
 @interface CSAPICallOptions : CSAPIBase
 - (instancetype)initWithAudio:(BOOL)audio __attribute__((swift_name("init(audio:)"))) __attribute__((objc_designated_initializer));
-- (BOOL)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
+- (BOOL)component1 __attribute__((swift_name("component1()")));
 - (CSAPICallOptions *)doCopyAudio:(BOOL)audio __attribute__((swift_name("doCopy(audio:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
@@ -684,8 +705,8 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CognitoResult")))
 @interface CSAPICognitoResult<T> : CSAPIBase
 - (instancetype)initWithResult:(T _Nullable)result error:(NSError * _Nullable)error __attribute__((swift_name("init(result:error:)"))) __attribute__((objc_designated_initializer));
-- (T _Nullable)component1 __attribute__((swift_name("component1()"))) __attribute__((deprecated("use corresponding property instead")));
-- (NSError * _Nullable)component2 __attribute__((swift_name("component2()"))) __attribute__((deprecated("use corresponding property instead")));
+- (T _Nullable)component1 __attribute__((swift_name("component1()")));
+- (NSError * _Nullable)component2 __attribute__((swift_name("component2()")));
 - (CSAPICognitoResult<T> *)doCopyResult:(T _Nullable)result error:(NSError * _Nullable)error __attribute__((swift_name("doCopy(result:error:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
@@ -735,6 +756,16 @@ __attribute__((swift_name("BaseBodyKt")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinUnit")))
+@interface CSAPIKotlinUnit : CSAPIBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)unit __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) CSAPIKotlinUnit *shared __attribute__((swift_name("shared")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("KotlinEnumCompanion")))
 @interface CSAPIKotlinEnumCompanion : CSAPIBase
 + (instancetype)alloc __attribute__((unavailable));
@@ -753,16 +784,6 @@ __attribute__((swift_name("KotlinArray")))
 - (id<CSAPIKotlinIterator>)iterator __attribute__((swift_name("iterator()")));
 - (void)setIndex:(int32_t)index value:(T _Nullable)value __attribute__((swift_name("set(index:value:)")));
 @property (readonly) int32_t size __attribute__((swift_name("size")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("KotlinUnit")))
-@interface CSAPIKotlinUnit : CSAPIBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)unit __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) CSAPIKotlinUnit *shared __attribute__((swift_name("shared")));
-- (NSString *)description __attribute__((swift_name("description()")));
 @end;
 
 __attribute__((swift_name("KotlinIterator")))

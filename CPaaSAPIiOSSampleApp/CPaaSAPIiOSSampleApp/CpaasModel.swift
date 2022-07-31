@@ -13,10 +13,12 @@ import SwiftUI
 
 class CpaasModel: ObservableObject {
     
+    // To get account_sid & auth_token please visit this link:
+    // https://usstaging.restcomm.com/docs/api/overview.html#_authentication
     let userID: String = "YOUR_USER_ID"
     let custom_domain  = "webrtc-dev.restcomm.com"
-    let account_sid    = "AC3c5b4177e5fdd813720bc0d6dd7f057e"
-    let auth_token     = "c8b0fca2c59d9198b641ce60fe9b501b"
+    let account_sid    = "<Account SID from restcomm>"
+    let auth_token     = "<Auth Token from restcomm>"
     let app_sid        = "ClickToCallDevApp"
     let pns_token      = "PNSTOKEN"
     let base_url       = Const.shared.HTTP_URL_AWS
@@ -52,8 +54,10 @@ class CpaasModel: ObservableObject {
     }
     
     
+    /// You should check that you are registered before starting a call
     func start() {
         statusCall = .initCall
+        //create a callId for connecting to a meeting
         CPaaSAPI.shared.voice.create { [weak self] createResult in
             guard let self = self else { return }
             
@@ -68,7 +72,8 @@ class CpaasModel: ObservableObject {
     private func connect(callId: String) {
         
         let api = CPaaSAPI.shared.voice
-
+        
+        //Connect to a call with the call id you created or received
         api.connect(callId: callId, callOptions: CallOptions(audio: true)) { [weak self] connectResult in
             guard let self = self else { return }
             connectResult.fold { newCall in
@@ -77,6 +82,7 @@ class CpaasModel: ObservableObject {
                 self.showCallView = true
             } onFailure: { callStartError in
                 print("Failed connecting to meeting: \(callStartError.debugDescription)")
+                //From error type you can understand what caused registration to fail
                 switch callStartError {
                 case is CallStartError.CallAlreadyExistError:
                     break
@@ -86,7 +92,6 @@ class CpaasModel: ObservableObject {
                     break
                 }
             }
-
         }
     }
     
@@ -125,14 +130,21 @@ class CpaasModel: ObservableObject {
 
 
 extension CpaasModel: CPaaSAPICb {
+    func onRegistrationState(state: REGISTRATION_STATE) {
+        switch state {
+        case .registerFailed:
+            print("Registration failed")
+        case .registered:
+            print("Registration succeeded")
+        default:
+            break
+        }
+    }
+    
     func onIncomingCall(callId: String, callerId: String, serviceType: ServiceType) {
         statusCall = .initCall
         //When receiving an incoming call you can accept it by calling CPaaSAPI.shared.connect or reject it by calling CPaaSAPI.shared.reject
         connect(callId: callId)
-    }
-    
-    func onRegistrationComplete(success: Bool) {
-        print("Registration finished: \(success)")
     }
 }
 

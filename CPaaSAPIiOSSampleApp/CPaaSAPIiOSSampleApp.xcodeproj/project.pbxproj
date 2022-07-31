@@ -16,18 +16,10 @@
 		5EED75CA27FC733C007FAD3D /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; };
 		5EED75CB27FC733C007FAD3D /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EFD1F4427FCC7AD009E9388 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD1F4327FCC7AD009E9388 /* CallView.swift */; };
-		FDFB7DD2288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */; };
-		FDFB7DD3288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDFB7DD4288477F8003E7727 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */; };
-		FDFB7DD5288477F8003E7727 /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDFB7DD6288477F8003E7727 /* AWSAuthCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */; };
-		FDFB7DD7288477F8003E7727 /* AWSAuthCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDFB7DD8288477F8003E7727 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD0288477F8003E7727 /* AWSCore.framework */; };
-		FDFB7DD9288477F8003E7727 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD0288477F8003E7727 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDFB7DDA288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */; };
-		FDFB7DDB288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDFB7DDD288477FE003E7727 /* CpaaSAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */; };
-		FDFB7DDE288477FE003E7727 /* CpaaSAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD3620E6288E87460064C140 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E5288E87460064C140 /* AWSMobileClient.framework */; };
+		FD3620E7288E87460064C140 /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E5288E87460064C140 /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD3620E9288E879C0064C140 /* CpaaSAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E8288E879C0064C140 /* CpaaSAPI.framework */; };
+		FD3620EA288E879C0064C140 /* CpaaSAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E8288E879C0064C140 /* CpaaSAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDFB7DE02885556C003E7727 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB7DDF2885556C003E7727 /* UIHelpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,13 +30,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FDFB7DD5288477F8003E7727 /* AWSMobileClient.framework in Embed Frameworks */,
-				FDFB7DDB288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
-				FDFB7DD9288477F8003E7727 /* AWSCore.framework in Embed Frameworks */,
-				FDFB7DD3288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
+				FD3620EA288E879C0064C140 /* CpaaSAPI.framework in Embed Frameworks */,
+				FD3620E7288E87460064C140 /* AWSMobileClient.framework in Embed Frameworks */,
 				5EED75CB27FC733C007FAD3D /* WebRTC.framework in Embed Frameworks */,
-				FDFB7DD7288477F8003E7727 /* AWSAuthCore.framework in Embed Frameworks */,
-				FDFB7DDE288477FE003E7727 /* CpaaSAPI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,12 +50,8 @@
 		5EED75B027FC6A16007FAD3D /* CpaasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpaasModel.swift; sourceTree = "<group>"; };
 		5EED75C827FC732C007FAD3D /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 		5EFD1F4327FCC7AD009E9388 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
-		FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = "<group>"; };
-		FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
-		FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAuthCore.framework; sourceTree = "<group>"; };
-		FDFB7DD0288477F8003E7727 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
-		FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = "<group>"; };
-		FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CpaaSAPI.framework; sourceTree = "<group>"; };
+		FD3620E5288E87460064C140 /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
+		FD3620E8288E879C0064C140 /* CpaaSAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CpaaSAPI.framework; sourceTree = "<group>"; };
 		FDFB7DDF2885556C003E7727 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,13 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDFB7DD4288477F8003E7727 /* AWSMobileClient.framework in Frameworks */,
-				FDFB7DDA288477F8003E7727 /* AWSCognitoIdentityProvider.framework in Frameworks */,
-				FDFB7DD8288477F8003E7727 /* AWSCore.framework in Frameworks */,
-				FDFB7DD2288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				FD3620E9288E879C0064C140 /* CpaaSAPI.framework in Frameworks */,
+				FD3620E6288E87460064C140 /* AWSMobileClient.framework in Frameworks */,
 				5EED75CA27FC733C007FAD3D /* WebRTC.framework in Frameworks */,
-				FDFB7DD6288477F8003E7727 /* AWSAuthCore.framework in Frameworks */,
-				FDFB7DDD288477FE003E7727 /* CpaaSAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,12 +105,8 @@
 		5EED75B227FC6F7A007FAD3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FDFB7DDC288477FE003E7727 /* CpaaSAPI.framework */,
-				FDFB7DCF288477F8003E7727 /* AWSAuthCore.framework */,
-				FDFB7DD1288477F8003E7727 /* AWSCognitoIdentityProvider.framework */,
-				FDFB7DCD288477F8003E7727 /* AWSCognitoIdentityProviderASF.framework */,
-				FDFB7DD0288477F8003E7727 /* AWSCore.framework */,
-				FDFB7DCE288477F8003E7727 /* AWSMobileClient.framework */,
+				FD3620E8288E879C0064C140 /* CpaaSAPI.framework */,
+				FD3620E5288E87460064C140 /* AWSMobileClient.framework */,
 				5EED75C827FC732C007FAD3D /* WebRTC.framework */,
 			);
 			name = Frameworks;

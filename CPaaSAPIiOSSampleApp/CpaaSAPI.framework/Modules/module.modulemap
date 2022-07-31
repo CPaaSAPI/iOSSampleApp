@@ -3,6 +3,4 @@ framework module CpaaSAPI {
 
     export *
     module * { export * }
-
-    use Foundation
 }
