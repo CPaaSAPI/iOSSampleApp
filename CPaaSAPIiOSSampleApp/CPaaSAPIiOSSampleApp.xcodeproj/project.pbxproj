@@ -13,11 +13,14 @@
 		5EED75A727FC3163007FAD3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED75A527FC3163007FAD3D /* LaunchScreen.storyboard */; };
 		5EED75AF27FC5BF2007FAD3D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED75AE27FC5BF2007FAD3D /* MainView.swift */; };
 		5EED75B127FC6A16007FAD3D /* CpaasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED75B027FC6A16007FAD3D /* CpaasModel.swift */; };
-		5EED75C627FC72BB007FAD3D /* CpaasAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */; platformFilter = ios; };
-		5EED75C727FC72BB007FAD3D /* CpaasAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EED75CA27FC733C007FAD3D /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; };
 		5EED75CB27FC733C007FAD3D /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EED75C827FC732C007FAD3D /* WebRTC.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EFD1F4427FCC7AD009E9388 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFD1F4327FCC7AD009E9388 /* CallView.swift */; };
+		FD3620E6288E87460064C140 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E5288E87460064C140 /* AWSMobileClient.framework */; };
+		FD3620E7288E87460064C140 /* AWSMobileClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E5288E87460064C140 /* AWSMobileClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD3620E9288E879C0064C140 /* CpaaSAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E8288E879C0064C140 /* CpaaSAPI.framework */; };
+		FD3620EA288E879C0064C140 /* CpaaSAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3620E8288E879C0064C140 /* CpaaSAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFB7DE02885556C003E7727 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB7DDF2885556C003E7727 /* UIHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +30,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5EED75C727FC72BB007FAD3D /* CpaasAPI.framework in Embed Frameworks */,
+				FD3620EA288E879C0064C140 /* CpaaSAPI.framework in Embed Frameworks */,
+				FD3620E7288E87460064C140 /* AWSMobileClient.framework in Embed Frameworks */,
 				5EED75CB27FC733C007FAD3D /* WebRTC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -44,9 +48,11 @@
 		5EED75A827FC3163007FAD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EED75AE27FC5BF2007FAD3D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5EED75B027FC6A16007FAD3D /* CpaasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CpaasModel.swift; sourceTree = "<group>"; };
-		5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CpaasAPI.framework; sourceTree = "<group>"; };
 		5EED75C827FC732C007FAD3D /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 		5EFD1F4327FCC7AD009E9388 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
+		FD3620E5288E87460064C140 /* AWSMobileClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileClient.framework; sourceTree = "<group>"; };
+		FD3620E8288E879C0064C140 /* CpaaSAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CpaaSAPI.framework; sourceTree = "<group>"; };
+		FDFB7DDF2885556C003E7727 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EED75C627FC72BB007FAD3D /* CpaasAPI.framework in Frameworks */,
+				FD3620E9288E879C0064C140 /* CpaaSAPI.framework in Frameworks */,
+				FD3620E6288E87460064C140 /* AWSMobileClient.framework in Frameworks */,
 				5EED75CA27FC733C007FAD3D /* WebRTC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +97,7 @@
 				5EED75AE27FC5BF2007FAD3D /* MainView.swift */,
 				5EED75B027FC6A16007FAD3D /* CpaasModel.swift */,
 				5EFD1F4327FCC7AD009E9388 /* CallView.swift */,
+				FDFB7DDF2885556C003E7727 /* UIHelpers.swift */,
 			);
 			path = CPaaSAPIiOSSampleApp;
 			sourceTree = "<group>";
@@ -97,8 +105,9 @@
 		5EED75B227FC6F7A007FAD3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD3620E8288E879C0064C140 /* CpaaSAPI.framework */,
+				FD3620E5288E87460064C140 /* AWSMobileClient.framework */,
 				5EED75C827FC732C007FAD3D /* WebRTC.framework */,
-				5EED75C427FC72B3007FAD3D /* CpaasAPI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 				5EED75B127FC6A16007FAD3D /* CpaasModel.swift in Sources */,
 				5EED759B27FC3160007FAD3D /* AppDelegate.swift in Sources */,
 				5EFD1F4427FCC7AD009E9388 /* CallView.swift in Sources */,
+				FDFB7DE02885556C003E7727 /* UIHelpers.swift in Sources */,
 				5EED759D27FC3160007FAD3D /* SceneDelegate.swift in Sources */,
 				5EED75AF27FC5BF2007FAD3D /* MainView.swift in Sources */,
 			);
@@ -346,6 +356,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -383,6 +394,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};

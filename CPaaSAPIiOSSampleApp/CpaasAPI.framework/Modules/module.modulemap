@@ -1,6 +1,0 @@
-framework module CpaasAPI {
-    umbrella header "CpaasAPI.h"
-
-    export *
-    module * { export * }
-}

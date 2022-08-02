@@ -1,0 +1,6 @@
+framework module CpaaSAPI {
+    umbrella header "CpaaSAPI.h"
+
+    export *
+    module * { export * }
+}

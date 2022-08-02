@@ -9,42 +9,49 @@ import SwiftUI
 
 struct CallView: View {
    
-    @EnvironmentObject var model :CpaasModel
+    @EnvironmentObject var model: CpaasModel
     
     var body: some View {
         
         VStack(alignment: .center){
            
+            Text("CPaaS Call")
+                .foregroundColor(Color(hex: "#005C97"))
+                .font(.custom("Lato-Regular", size: 28))
+                .padding(.top, 73)
+                .padding(.bottom, 5)
+            Divider().frame( height: 2, alignment: .center).background(Color(hex: "#EC1B29")).padding([.trailing, .leading], 50.0)
             Spacer()
-            HStack{
-
+            if model.isLoadingActivated {
+                EscapingAnimationTest_Inner()
+            }
+           
+            Text(model.strStatusCall)
+            Spacer()
+            
+            HStack() {
                 Spacer()
                 Button (action: {
                     model.mute()
                 } ){
-                    Image(model.isCallMuted ? "ic_bg_call_mute" : "ic_bg_call_unmute")
+                    Image(model.isCallMuted ? "mute" : "unmute")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
+                        .frame(width: 75, height: 75)
                 }
-                .frame(width: 70, height: 70)
-                .background(Color(red: 54/255.0, green: 64/255.0, blue: 72/255.0))
-                .clipShape(Circle())
                 Spacer()
                 Button (action: {
                     model.endCall()
                 } ){
-                    Image("endWhite")
+                    Image("end_call")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
+                        .frame(width: 75, height: 75)
                 }
-                .frame(width: 70, height: 70)
-                .background(Color(red: 172/255.0, green: 49/255.0, blue: 47/255.0))
-                .clipShape(Circle())
                 Spacer()
             }
             .padding(.bottom, 30)
+        }
+        .onAppear {
+            model.isLoadingActivated = true
         }
         
         .navigationBarHidden(true)
@@ -52,10 +59,22 @@ struct CallView: View {
     }
 }
 
-#if DEBUG
-struct CallView_Previews: PreviewProvider {
-    static var previews: some View {
-        CallView()
+
+struct EscapingAnimationTest_Inner: View {
+    @State var degrees: CGFloat = 0
+    var body: some View {
+        Circle()
+            .trim(from: 0.0, to: 0.6)
+            .stroke(AngularGradient(gradient: .init(colors: [Color.gray.opacity(0.2),Color.gray.opacity(0.1)]), center: .zero),style: StrokeStyle(lineWidth: 3, lineCap: .butt))
+            .frame(width: 35, height: 25)
+            .rotationEffect(Angle(degrees: Double(degrees)))
+            .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: degrees)
+            .onAppear() {
+                DispatchQueue.main.async {
+                    withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
+                        degrees = 360
+                    }
+                }
+            }
     }
 }
-#endif
