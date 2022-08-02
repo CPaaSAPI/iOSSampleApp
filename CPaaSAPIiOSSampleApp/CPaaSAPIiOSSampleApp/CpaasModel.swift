@@ -161,7 +161,7 @@ extension CpaasModel: CPaaSCallEvents {
     
     func onConnectedFailure(reason: CPaaSReason) {
         endCallHandler()
-        print("Connection failed the reson is :\(reason)")
+        print("Connection failed the reason is :\(reason)")
     }
     
     func onReconnecting(reason: CPaaSReason) {
