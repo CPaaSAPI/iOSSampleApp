@@ -23,7 +23,7 @@ You can find our sample application on [GitHub](https://github.com/CPaaSAPI/iOSS
 This sample code demonstrates how to integrate the CPaaSAPI SDK with a swift application.
 
 ### Getting the CPaaSAPI SDK
-The CPaaSAPI SDK for iOS is available for download [here]().
+The CPaaS API iOS SDK is available for download [here](https://github.com/CPaaSAPI/iOSSampleApp/tree/main/CPaaSAPIiOSSampleApp/CpaaSAPI.framework).
 
 #### Manual Install
 Follow the steps below to manually install the SDK.
@@ -32,6 +32,13 @@ Follow the steps below to manually install the SDK.
 2. Drag and drop these files onto the **Frameworks, Libraries, and Embedded Content** section that is located in Xcode under **General** tab.
 3. verify that "Copy items if needed" is checked and press Finish.
 4. verify that "Embed & Sign" is checked.
+
+#### Pod Install
+CPaaSAPI iOS SDK can be integrated using cocoapods by specifying the following in your podfile:
+
+target 'Your project target' do
+pod 'CpaaSAPI_iOS'
+end
 
 ### Permission
 Add the following permission to your applications _info.plist_:  
