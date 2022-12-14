@@ -563,14 +563,12 @@ __attribute__((swift_name("Const")))
 @property (readonly) NSString *COGNITO_REGION __attribute__((swift_name("COGNITO_REGION")));
 @property (readonly) int64_t COGNITO_TOKEN_CHECK_DELAY __attribute__((swift_name("COGNITO_TOKEN_CHECK_DELAY")));
 @property (readonly) int64_t COGNITO_WAIT_AFTER_EXP __attribute__((swift_name("COGNITO_WAIT_AFTER_EXP")));
-@property (readonly) NSString *COTURN_TURN_PASSWORD __attribute__((swift_name("COTURN_TURN_PASSWORD")));
-@property (readonly) NSString *COTURN_TURN_URL __attribute__((swift_name("COTURN_TURN_URL")));
-@property (readonly) NSString *COTURN_TURN_USERNAME __attribute__((swift_name("COTURN_TURN_USERNAME")));
 @property (readonly) NSString *DEVICE_ID __attribute__((swift_name("DEVICE_ID")));
 @property (readonly) NSString *FILE_NAME_EXTENSION __attribute__((swift_name("FILE_NAME_EXTENSION")));
 @property (readonly) NSString *GATEWAY_DESTINATION_ID __attribute__((swift_name("GATEWAY_DESTINATION_ID")));
 @property (readonly) NSString *HTTP_URL __attribute__((swift_name("HTTP_URL")));
-@property (readonly) NSString *HTTP_URL_AWS __attribute__((swift_name("HTTP_URL_AWS")));
+@property (readonly) NSString *HTTP_URL_AWS_DEV __attribute__((swift_name("HTTP_URL_AWS_DEV")));
+@property (readonly) NSString *HTTP_URL_AWS_STG __attribute__((swift_name("HTTP_URL_AWS_STG")));
 @property (readonly) int32_t MAX_STATISTICS_HISTORY_SIZE __attribute__((swift_name("MAX_STATISTICS_HISTORY_SIZE")));
 @property (readonly) int64_t PING_INTERVAL __attribute__((swift_name("PING_INTERVAL")));
 @property (readonly) int64_t PING_TIMEOUT __attribute__((swift_name("PING_TIMEOUT")));
@@ -579,10 +577,8 @@ __attribute__((swift_name("Const")))
 @property (readonly) NSString *PROTOCOL_VERSION __attribute__((swift_name("PROTOCOL_VERSION")));
 @property (readonly) int64_t REGISTRATION_ACK_TIMEOUT __attribute__((swift_name("REGISTRATION_ACK_TIMEOUT")));
 @property (readonly) NSString *SOURCE __attribute__((swift_name("SOURCE")));
-@property (readonly) NSString *STUN_COTURN __attribute__((swift_name("STUN_COTURN")));
 @property (readonly) NSString *STUN_GOOGL __attribute__((swift_name("STUN_GOOGL")));
 @property (readonly) NSString *STUN_XIRSYS __attribute__((swift_name("STUN_XIRSYS")));
-@property (readonly) NSString *TURN_URL __attribute__((swift_name("TURN_URL")));
 @property (readonly) NSString *VIDEO_VP8_INTEL_HW_ENCODER_FIELDTRIAL __attribute__((swift_name("VIDEO_VP8_INTEL_HW_ENCODER_FIELDTRIAL")));
 @property (readonly) NSString *WEBRTC_API_GW __attribute__((swift_name("WEBRTC_API_GW")));
 @property (readonly) NSString *XIRSYS_TURN_PASSWORD __attribute__((swift_name("XIRSYS_TURN_PASSWORD")));
@@ -668,13 +664,15 @@ __attribute__((swift_name("CallOptionService")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CallOptions")))
 @interface CSAPICallOptions : CSAPIBase
-- (instancetype)initWithAudio:(BOOL)audio __attribute__((swift_name("init(audio:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithAudio:(BOOL)audio destination:(NSString * _Nullable)destination __attribute__((swift_name("init(audio:destination:)"))) __attribute__((objc_designated_initializer));
 - (BOOL)component1 __attribute__((swift_name("component1()")));
-- (CSAPICallOptions *)doCopyAudio:(BOOL)audio __attribute__((swift_name("doCopy(audio:)")));
+- (NSString * _Nullable)component2 __attribute__((swift_name("component2()")));
+- (CSAPICallOptions *)doCopyAudio:(BOOL)audio destination:(NSString * _Nullable)destination __attribute__((swift_name("doCopy(audio:destination:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) BOOL audio __attribute__((swift_name("audio")));
+@property (readonly) NSString * _Nullable destination __attribute__((swift_name("destination")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

@@ -105,6 +105,8 @@ To initiate a call simply call **CPaaSAPI.voice.create(...)** and **CPaaSAPI.voi
 ``connect()``: starts the actual connection to the call and returns a  ``CPaaSCall`` obj.
 
 ```objectivec
+// destination is optional for P2A/A2P, but is mandatory for P2P use case, if given it shall be a valid string without special characters
+var callOptions = CallOptions(audio = true, destination = destId)
 CPaaSAPI.shared.voice.create { createResult in
     createResult.fold { callId in
         CPaaSAPI.shared.voice.connect(callId: callId, callOptions: callOptions) { connectResult in
