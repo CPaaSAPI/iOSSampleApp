@@ -21,10 +21,9 @@ class CpaasModel: ObservableObject {
     let auth_token     = "<Auth Token from restcomm>"
     let app_sid        = "ClickToCallDevApp"
     let pns_token      = "PNSTOKEN"
-    let base_url       = Const.shared.HTTP_URL_AWS
-    
+    let destId         =   "Test1234"
+    let base_url       = Const.shared.HTTP_URL_AWS_STG
     var call: CPaaSCall?
-    
     @Published var showCallView: Bool = false
     @Published var isCallMuted: Bool = false
     @Published var isLoadingActivated: Bool = false
@@ -74,7 +73,7 @@ class CpaasModel: ObservableObject {
         let api = CPaaSAPI.shared.voice
         
         //Connect to a call with the call id you created or received
-        api.connect(callId: callId, callOptions: CallOptions(audio: true)) { [weak self] connectResult in
+        api.connect(callId: callId, callOptions: CallOptions(audio: true, destination: self.destId)) { [weak self] connectResult in
             guard let self = self else { return }
             connectResult.fold { newCall in
                 self.call = newCall
